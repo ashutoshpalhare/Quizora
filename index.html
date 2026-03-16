@@ -1,26 +1,78 @@
-<!DOCTYPE html><html><head><title>Quiz</title></head><body><h1>Quizora</h1></body></html>
-<!-- Dev step 3 -->
-<!-- Dev step 6 -->
-<!-- Dev step 9 -->
-<!-- Dev step 12 -->
-<!-- Dev step 15 -->
-<!-- Dev step 18 -->
-<!-- Dev step 21 -->
-<!-- Dev step 24 -->
-<!-- Dev step 27 -->
-<!-- Dev step 30 -->
-<!-- Dev step 33 -->
-<!-- Dev step 36 -->
-<!-- Dev step 39 -->
-<!-- Dev step 42 -->
-<!-- Dev step 45 -->
-<!-- Dev step 48 -->
-<!-- Dev step 51 -->
-<!-- Dev step 54 -->
-<!-- Dev step 57 -->
-<!-- Dev step 60 -->
-<!-- Dev step 63 -->
-<!-- Dev step 66 -->
-<!-- Dev step 69 -->
-<!-- Dev step 72 -->
-<!-- Dev step 75 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Master Quiz 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-cricket-bat-ball"></i>
+                <h2>IPL Master</h2>
+            </div>
+            <div class="nav-section-title">Question Navigator</div>
+            <div class="nav-grid" id="nav-grid"></div>
+            <div class="legend">
+                <div class="legend-item"><div class="legend-box" style="background: rgba(100, 255, 218, 0.15); border: 1px solid rgba(100, 255, 218, 0.4);"></div> Attempted</div>
+                <div class="legend-item"><div class="legend-box" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);"></div> Unattempted</div>
+                <div class="legend-item"><div class="legend-box" style="background: linear-gradient(135deg, #64ffda 0%, #00b4d8 100%);"></div> Current Question</div>
+            </div>
+            <button class="submit-btn" onclick="submitQuiz()">
+                <i class="fa-solid fa-paper-plane"></i> Submit Quiz
+            </button>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="header-titles">
+                    <h1>T20 Cricket Challenge</h1>
+                    <p>Test your knowledge of the Indian Premier League.</p>
+                </div>
+                <div class="timer" id="timer-box">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <span id="time-display">05:00</span>
+                </div>
+            </header>
+            <div class="question-container" id="quiz-area">
+                <div class="q-meta">
+                    <span class="badge">Question <span id="q-num-display">1</span> of 10</span>
+                </div>
+                <div class="question-text" id="question-text"></div>
+                <div class="options-grid" id="options-grid"></div>
+                <div class="controls">
+                    <button class="control-btn" id="prev-btn" onclick="prevQuestion()">
+                        <i class="fa-solid fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="control-btn" id="next-btn" onclick="nextQuestion()">
+                        Next <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+        <div class="result-overlay" id="result-overlay">
+            <div class="result-container">
+                <div class="result-summary">
+                    <h2 class="result-title">Match Summary</h2>
+                    <div class="score-circle" id="score-circle" style="--p: 0%">
+                        <div class="score-content">
+                            <div class="score-text"><span id="final-score">0</span><span class="score-total">/10</span></div>
+                        </div>
+                    </div>
+                    <p class="result-msg" id="result-msg">Fantastic effort!</p>
+                    <button class="submit-btn" onclick="location.reload()">
+                        <i class="fa-solid fa-rotate-right"></i> Play Again
+                    </button>
+                </div>
+                <div class="result-details" id="result-details"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
