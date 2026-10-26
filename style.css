@@ -193,3 +193,10 @@ button:disabled { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
+
+
+/* Phase 3: final theme consistency */
+.blob-1 { background: rgba(245, 166, 35, 0.14); }
+.blob-2 { background: rgba(255, 107, 0, 0.10); }
+.ans-correct { color: #ffc66d; }
+.ans-wrong { color: #ff806b; }
