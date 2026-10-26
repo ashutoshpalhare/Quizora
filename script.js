@@ -16,6 +16,7 @@ let userAnswers = new Array(quizData.length).fill(null);
 let timeLeft = 300;
 let timerInterval;
 let isSubmitted = false;
+let autoAdvanceTimeout = null;
 
 const navGrid = document.getElementById('nav-grid');
 const questionText = document.getElementById('question-text');
@@ -51,6 +52,12 @@ function createNavButtons() {
 }
 
 function updateNavDisplay() {
+    const answeredCount = userAnswers.filter(answer => answer !== null).length;
+    const progressText = document.getElementById('progress-text');
+    const progressFill = document.getElementById('progress-fill');
+    if (progressText) progressText.textContent = `${answeredCount} of ${quizData.length} answered`;
+    if (progressFill) progressFill.style.width = `${(answeredCount / quizData.length) * 100}%`;
+
     for (let i = 0; i < quizData.length; i++) {
         const btn = document.getElementById(`nav-btn-${i}`);
         if (!btn) continue;
@@ -63,6 +70,10 @@ function updateNavDisplay() {
 
 function loadQuestion(index) {
     if (index < 0 || index >= quizData.length || isSubmitted) return;
+    if (autoAdvanceTimeout !== null) {
+        window.clearTimeout(autoAdvanceTimeout);
+        autoAdvanceTimeout = null;
+    }
 
     const quizArea = document.getElementById('quiz-area');
     quizArea.style.animation = 'none';
@@ -106,7 +117,14 @@ function selectOption(optionIndex) {
     loadQuestion(currentQuestion);
 
     if (currentQuestion < quizData.length - 1) {
-        window.setTimeout(() => nextQuestion(), 400);
+        const answeredQuestion = currentQuestion;
+        autoAdvanceTimeout = window.setTimeout(() => {
+            autoAdvanceTimeout = null;
+            // Only advance if the user is still on the question they just answered.
+            if (!isSubmitted && currentQuestion === answeredQuestion) {
+                loadQuestion(answeredQuestion + 1);
+            }
+        }, 400);
     }
 }
 
@@ -156,6 +174,18 @@ function startTimer() {
 
 function submitQuiz(isTimeout = false) {
     if (isSubmitted) return;
+
+    const answeredCount = userAnswers.filter(answer => answer !== null).length;
+    const unansweredCount = quizData.length - answeredCount;
+    if (!isTimeout) {
+        const summary = `You have answered ${answeredCount} of ${quizData.length} questions.\nUnanswered: ${unansweredCount}.\n\nSubmit your quiz now?`;
+        if (!window.confirm(summary)) return;
+    }
+
+    if (autoAdvanceTimeout !== null) {
+        window.clearTimeout(autoAdvanceTimeout);
+        autoAdvanceTimeout = null;
+    }
     isSubmitted = true;
     window.clearInterval(timerInterval);
 
