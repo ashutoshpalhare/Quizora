@@ -43,6 +43,12 @@
                 <div class="q-meta">
                     <span class="badge">Question <span id="q-num-display">1</span> of 10</span>
                 </div>
+                <div class="quiz-progress" aria-label="Quiz answer progress">
+                    <div class="progress-track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="progress-text" aria-live="polite">0 of 10 answered</span>
+                </div>
                 <div class="question-text" id="question-text"></div>
                 <div class="options-grid" id="options-grid"></div>
                 <div class="controls">
