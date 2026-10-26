@@ -39,7 +39,7 @@
                     <span id="time-display">05:00</span>
                 </div>
             </header>
-            <div class="question-container" id="quiz-area">
+            <div class="question-container" id="quiz-area" aria-labelledby="question-text">
                 <div class="q-meta">
                     <span class="badge">Question <span id="q-num-display">1</span> of 10</span>
                 </div>
@@ -49,7 +49,7 @@
                     </div>
                     <span id="progress-text" aria-live="polite">0 of 10 answered</span>
                 </div>
-                <div class="question-text" id="question-text"></div>
+                <div class="question-text" id="question-text" aria-live="polite" aria-atomic="true"></div>
                 <div class="options-grid" id="options-grid"></div>
                 <div class="controls">
                     <button class="control-btn" id="prev-btn" onclick="prevQuestion()">
@@ -61,16 +61,21 @@
                 </div>
             </div>
         </main>
-        <div class="result-overlay" id="result-overlay">
+        <div class="result-overlay" id="result-overlay" role="dialog" aria-modal="true" aria-labelledby="result-dialog-title" aria-hidden="true" tabindex="-1">
             <div class="result-container">
                 <div class="result-summary">
-                    <h2 class="result-title">Match Summary</h2>
+                    <h2 class="result-title" id="result-dialog-title">Match Summary</h2>
                     <div class="score-circle" id="score-circle" style="--p: 0%">
                         <div class="score-content">
                             <div class="score-text"><span id="final-score">0</span><span class="score-total">/10</span></div>
                         </div>
                     </div>
-                    <p class="result-msg" id="result-msg">Fantastic effort!</p>
+                    <p class="result-msg" id="result-msg" aria-live="polite">Fantastic effort!</p>
+                    <div class="result-stats" aria-label="Quiz result statistics">
+                        <div class="result-stat"><span class="stat-value" id="accuracy-value">0%</span><span class="stat-label">Accuracy</span></div>
+                        <div class="result-stat"><span class="stat-value" id="correct-value">0</span><span class="stat-label">Correct</span></div>
+                        <div class="result-stat"><span class="stat-value" id="unanswered-value">0</span><span class="stat-label">Unanswered</span></div>
+                    </div>
                     <button class="submit-btn" onclick="location.reload()">
                         <i class="fa-solid fa-rotate-right"></i> Play Again
                     </button>
