@@ -246,8 +246,15 @@ function submitQuiz(isTimeout = false) {
     if (isTimeout) message = "Time's Up! " + message;
     document.getElementById('result-msg').textContent = message;
 
+    const answeredTotal = userAnswers.filter(answer => answer !== null).length;
+    document.getElementById('accuracy-value').textContent = `${Math.round((score / quizData.length) * 100)}%`;
+    document.getElementById('correct-value').textContent = String(score);
+    document.getElementById('unanswered-value').textContent = String(quizData.length - answeredTotal);
+
     const overlay = document.getElementById('result-overlay');
+    overlay.setAttribute('aria-hidden', 'false');
     overlay.classList.add('show');
+    window.setTimeout(() => overlay.focus(), 0);
 
     window.setTimeout(() => {
         document.getElementById('score-circle').style.background =
