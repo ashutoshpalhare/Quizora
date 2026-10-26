@@ -57,6 +57,8 @@ function updateNavDisplay() {
     const progressFill = document.getElementById('progress-fill');
     if (progressText) progressText.textContent = `${answeredCount} of ${quizData.length} answered`;
     if (progressFill) progressFill.style.width = `${(answeredCount / quizData.length) * 100}%`;
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) progressBar.setAttribute('aria-valuenow', String(answeredCount));
 
     for (let i = 0; i < quizData.length; i++) {
         const btn = document.getElementById(`nav-btn-${i}`);
