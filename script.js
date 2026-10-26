@@ -1,8 +1,8 @@
 const quizData = [
-    { question: "Which team has won the most IPL titles as of 2023 along with Mumbai Indians?", options: ["Kolkata Knight Riders", "Chennai Super Kings", "Royal Challengers Bangalore", "Gujarat Titans"], answer: 1 },
+    { question: "At the end of the 2023 season, which team shared the record for most IPL titles with Mumbai Indians?", options: ["Kolkata Knight Riders", "Chennai Super Kings", "Royal Challengers Bangalore", "Gujarat Titans"], answer: 1 },
     { question: "Who holds the record for the highest individual score (175*) in an IPL match?", options: ["Virat Kohli", "AB de Villiers", "Chris Gayle", "Brendon McCullum"], answer: 2 },
     { question: "In which year was the first ever IPL tournament held?", options: ["2007", "2008", "2009", "2010"], answer: 1 },
-    { question: "Which player has taken the most wickets in IPL history?", options: ["Lasith Malinga", "Amit Mishra", "Yuzvendra Chahal", "Dwayne Bravo"], answer: 2 },
+    { question: "As of the 2026 season, who leads the all-time IPL wickets list?", options: ["Lasith Malinga", "Amit Mishra", "Yuzvendra Chahal", "Dwayne Bravo"], answer: 2 },
     { question: "Which team is famously known as the 'Men in Pink'?", options: ["Punjab Kings", "Sunrisers Hyderabad", "Pune Warriors India", "Rajasthan Royals"], answer: 3 },
     { question: "Who has smashed the most number of sixes in the history of the IPL?", options: ["Chris Gayle", "Rohit Sharma", "MS Dhoni", "Kieron Pollard"], answer: 0 },
     { question: "Which bowler holds the record for the best bowling figures (6/12) in an IPL match?", options: ["Sohail Tanvir", "Alzarri Joseph", "Adam Zampa", "Anil Kumble"], answer: 1 },
