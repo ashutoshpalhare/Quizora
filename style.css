@@ -92,3 +92,9 @@
          .result-details { flex: 1; padding: 20px; }
          .result-overlay { padding: 15px; }
      }
+
+
+/* Phase 1: answer progress indicator */
+.quiz-progress { display: flex; align-items: center; gap: 12px; margin: -2px 0 22px; color: var(--text-muted); font-size: 13px; }
+.progress-track { flex: 1; height: 6px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,0.08); }
+.progress-fill { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--primary-light), var(--primary-dark)); transition: width 0.25s ease; }
